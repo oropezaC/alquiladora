@@ -1,20 +1,25 @@
 import React, {Component} from "react";
 import { Route,HashRouter } from "react-router-dom";
 
+//pages
 import Home from "./pages/Home";
-import Pedido from "./pages/Pedido";
+import Inventario from "./pages/Inventario";
 import Cotizacion from "./pages/Cotizacion";
+import Estadisticas from "./pages/Estadistica";
 
+//components
+import SideBar from "./components/SideBar";
 
 
 import {
-  Collapse,
+
   Navbar,
   NavbarToggler,
   NavbarBrand,
-  Nav,
-  NavItem,
-  NavLink,
+
+
+
+  Row,Col,
 } from 'reactstrap';
 
 class Main extends Component {
@@ -38,19 +43,20 @@ class Main extends Component {
           <Navbar color="dark" light expand="md">
             <NavbarBrand href="/#/" className="text-white"><h2>Alquiladora Casa AR</h2></NavbarBrand>
             <NavbarToggler onClick={this.toggle} />
-            <Collapse isOpen={this.state.isOpen} navbar>
-              <Nav className="ml-auto" navbar>
-                <NavItem><NavLink exact="true" href="/#/" className="text-white">Home</NavLink></NavItem>
-                <NavItem><NavLink  href="/#/pedido" className="text-white">Pedidos</NavLink></NavItem>
-                <NavItem><NavLink  href="/#/cotizacion" className="text-white">Cotizacion</NavLink></NavItem>
-              </Nav>
-            </Collapse>
           </Navbar>
-          <div className="content">
-            <Route exact path="/" component={Home}/>
-            <Route path="/pedido" component={Pedido}/>
-            <Route path="/cotizacion" component={Cotizacion}/>
-          </div>
+          <Row>
+            <Col xs="2" className="colSide">
+                <SideBar />
+            </Col>
+            <Col>
+              <div className="content">
+                <Route exact path="/" component={Home}/>
+                <Route path="/inventario" component={Inventario}/>
+                <Route path="/cotizacion" component={Cotizacion}/>
+                <Route path="/estadisticas" component={Estadisticas}/>
+              </div>
+            </Col>
+          </Row>
         </div>
       </HashRouter>
     )

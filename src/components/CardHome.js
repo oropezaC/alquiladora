@@ -8,6 +8,16 @@ import { Card, CardImg, CardText, CardBody, CardLink,
 
 
   class CardHome extends Component{
+    constructor(props){
+      super(props);
+
+      this.goIt = this.goIt.bind(this);
+    }
+
+    goIt(){
+      // console.log("aqui ando")
+    }
+
     render(){
       return(
         <CardGroup>
@@ -17,7 +27,9 @@ import { Card, CardImg, CardText, CardBody, CardLink,
               <CardTitle>Estadisticas</CardTitle>
               <CardText>Some quick example text to build on the card title and make up the bulk of the card's content.</CardText>
             </CardBody>
-            <CardFooter><Button color="danger">Ver Más</Button></CardFooter>
+            <CardFooter>
+              <Button color="danger"><CardLink href="/#/estadisticas">Ver Más</CardLink></Button>
+            </CardFooter>
           </Card>
           <Card className="cardSize" body inverse color="warning">
             <CardImg width="100%" src={target} alt="Card image cap" />
@@ -25,7 +37,7 @@ import { Card, CardImg, CardText, CardBody, CardLink,
               <CardTitle>Clientes</CardTitle>
               <CardText>Some quick example text to build on the card title and make up the bulk of the card's content.</CardText>
             </CardBody>
-            <CardFooter><Button color="info">Ver Más</Button></CardFooter>
+            <CardFooter><Button onClick={this.goIt}  color="info">Ver Más</Button></CardFooter>
           </Card>
           <Card className="cardSize" body inverse color="danger">
             <CardImg width="100%" src="https://placeholdit.imgix.net/~text?txtsize=33&txt=318%C3%97180&w=318&h=180" alt="Card image cap" />
@@ -33,7 +45,7 @@ import { Card, CardImg, CardText, CardBody, CardLink,
               <CardTitle>Card title</CardTitle>
               <CardText>Some quick example text to build on the card title and make up the bulk of the card's content.</CardText>
             </CardBody>
-            <CardFooter><Button color="success">Ver Más</Button></CardFooter>
+            <CardFooter><Button onClick={this.goIt}  color="success">Ver Más</Button></CardFooter>
           </Card>
         </CardGroup>
       )
