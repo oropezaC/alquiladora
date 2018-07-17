@@ -8,19 +8,13 @@ import Cotizacion from "./pages/Cotizacion";
 import Estadisticas from "./pages/Estadistica";
 
 //components
-import SideBar from "./components/SideBar";
+import NavBar from "./components/NavBar";
 
 
 import {
-
-  Navbar,
-  NavbarToggler,
-  NavbarBrand,
-
-
-
-  Row,Col,
+  Row,Col,Container
 } from 'reactstrap';
+
 
 class Main extends Component {
   constructor(props){
@@ -31,23 +25,19 @@ class Main extends Component {
       isOpen: false
     };
   }
+
   toggle() {
     this.setState({
       isOpen: !this.state.isOpen
     });
   }
+
   render(){
     return(
       <HashRouter>
         <div>
-          <Navbar color="dark" light expand="md">
-            <NavbarBrand href="/#/" className="text-white"><h2>Alquiladora Casa AR</h2></NavbarBrand>
-            <NavbarToggler onClick={this.toggle} />
-          </Navbar>
-          <Row>
-            <Col xs="2" className="colSide">
-                <SideBar />
-            </Col>
+          <NavBar/>
+          <div>
             <Col>
               <div className="content">
                 <Route exact path="/" component={Home}/>
@@ -56,7 +46,7 @@ class Main extends Component {
                 <Route path="/estadisticas" component={Estadisticas}/>
               </div>
             </Col>
-          </Row>
+          </div>
         </div>
       </HashRouter>
     )
