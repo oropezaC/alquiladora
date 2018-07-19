@@ -12,7 +12,7 @@ class TableLight extends Component {
   }
 
 render(){
-  console.log(this.props.datos);
+  // console.log(this.props.datos);
   return(
     <div>
       <Table striped>

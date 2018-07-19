@@ -19,18 +19,25 @@ class Estadisticas extends Component {
   }
 
   componentWillMount() {
-    this.getBi()
+    let token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoieWFoaXIiLCJpYXQiOjE1MzIwMzg0NjYsImV4cCI6MTUzMjEyNDg2Nn0.31Gs8eGz-EdfoU6h2ApaP_q-A6pWddjuNdQSw4RI92Q";
+    this.getBi(token)
   }
 
 
-  getBi(){
-    fetch(this.state.url)
-    .then((response) => response.json())
+  getBi(token){
+    fetch(this.state.url,{method:'get',
+      headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json',
+      'Authorization': token
+    }})
+    .then((response) =>response.json())
     .then((res)=>{
-      this.setState({
-        ventas : res
-      })
-
+      if (!res.error) {
+        this.setState({ventas : res.ventas})
+      }else {
+        console.log(res.descripcion);
+      }
     })
   }
 

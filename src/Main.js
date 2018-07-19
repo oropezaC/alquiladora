@@ -1,17 +1,18 @@
 import React, {Component} from "react";
-import { Route,HashRouter } from "react-router-dom";
+// import { Route,HashRouter } from "react-router-dom";
 
 //pages
-import Home from "./pages/Home";
-import Inventario from "./pages/Inventario";
-import Cotizacion from "./pages/Cotizacion";
-import Estadisticas from "./pages/Estadistica";
+// import Login from "./pages/Login";
+// import Home from "./pages/Home";
+// import Inventario from "./pages/Inventario";
+// import Cotizacion from "./pages/Cotizacion";
+// import Estadisticas from "./pages/Estadistica";
 
 //components
-import NavBar from "./components/NavBar";
-
-
-import { Col } from 'reactstrap';
+// import NavBar from "./components/NavBar";
+//
+//
+// import { Col } from 'reactstrap';
 
 
 class Main extends Component {
@@ -32,21 +33,10 @@ class Main extends Component {
 
   render(){
     return(
-      <HashRouter>
         <div>
-          <NavBar/>
-          <div>
-            <Col>
-              <div className="content">
-                <Route exact path="/" component={Home}/>
-                <Route path="/inventario" component={Inventario}/>
-                <Route path="/cotizacion" component={Cotizacion}/>
-                <Route path="/estadisticas" component={Estadisticas}/>
-              </div>
-            </Col>
-          </div>
+
         </div>
-      </HashRouter>
+
     )
   }
 }
