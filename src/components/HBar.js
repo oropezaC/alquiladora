@@ -16,6 +16,17 @@ const colors = [
   'rgba(76, 146, 38, 0.96)',
   'rgba(193, 129, 26, 0.84)'
 ]
+const options={
+  legend: {
+    display: false,
+  },
+  scales: {
+    yAxes: [{
+      ticks: { min: 0 },
+      stacked: true,
+    }],
+  }
+}
 
 class HBar extends Component {
   constructor(props){
@@ -25,9 +36,11 @@ class HBar extends Component {
     }
   }
   render(){
-    let d = this.props.datos;
+    let Labels = this.props.datos.map(item =>{return item.fecha})
+    let Ventas = this.props.datos.map(item=>{return item.venta})
+
     const data = {
-      labels: ['Enero', 'Febrero', 'Marzo', 'Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'],
+      labels: Labels,
       datasets: [
         {
           label: 'Pedidos',
@@ -35,15 +48,14 @@ class HBar extends Component {
           borderWidth: 1,
           hoverBackgroundColor: colors,
           hoverBorderColor: colors,
-          data: [d.enero,d.febrero,d.marzo,d.abril,d.mayo]
+          data: Ventas,
         }
       ]
     };
-
     return(
       <div>
-       <h2>Monitor Mensual de Pedidos</h2>
-       <Bar data={data} />
+
+        <Bar data={data} options={options}/>
       </div>
     )
   }

@@ -11,9 +11,7 @@ import Estadisticas from "./pages/Estadistica";
 import NavBar from "./components/NavBar";
 
 
-import {
-  Row,Col,Container
-} from 'reactstrap';
+import { Col } from 'reactstrap';
 
 
 class Main extends Component {

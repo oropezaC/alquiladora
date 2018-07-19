@@ -3,7 +3,7 @@ import React, {Component} from "react";
 import { Container,Row,Col} from 'reactstrap';
 
 import HBar from "../components/HBar";
-import Pay from "../components/Pay";
+import TableLight from "../components/TableLight";
 
 
 
@@ -11,9 +11,9 @@ class Estadisticas extends Component {
   constructor(props){
     super(props);
     this.state={
-      url : 'http://localhost:4000/estadisticas',
-      months:[],
-      products:[],
+      url : 'http://localhost:4500/estadistica',
+      fecha:[],
+      ventas:[],
     };
     this.getBi = this.getBi.bind(this);
   }
@@ -28,9 +28,9 @@ class Estadisticas extends Component {
     .then((response) => response.json())
     .then((res)=>{
       this.setState({
-        months:res.months,
-        products:res.products
+        ventas : res
       })
+
     })
   }
 
@@ -38,14 +38,19 @@ class Estadisticas extends Component {
   render(){
     return(
       <Container>
+        <h2 className="titleGraph">Monitor Mensual de Pedidos</h2>
         <Row>
           <Col>
-            <HBar datos={this.state.months}/>
+            <TableLight datos={this.state.ventas}/>
           </Col>
+          <Col>
+            <HBar datos={this.state.ventas}/>
+          </Col>
+
         </Row>
         <Row>
           <Col>
-            <Pay datos={this.state.products}/>
+
           </Col>
         </Row>
       </Container>

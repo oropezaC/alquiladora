@@ -35,25 +35,25 @@ class NavBar extends Component {
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="ml-auto" navbar>
               <NavItem>
-                <NavLink href="/estadisticas/">Estadisticas</NavLink>
+                <NavLink href="/#/estadisticas">Ventas</NavLink>
               </NavItem>
               <NavItem>
                 <NavLink href="https://github.com/reactstrap/reactstrap">GitHub</NavLink>
               </NavItem>
               <UncontrolledDropdown nav inNavbar>
                 <DropdownToggle nav caret>
-                  Options
+                  Dashboard
                 </DropdownToggle>
                 <DropdownMenu right>
                   <DropdownItem>
-                    Option 1
+                    Usuarios
                   </DropdownItem>
                   <DropdownItem>
-                    Option 2
+                    Inventario
                   </DropdownItem>
                   <DropdownItem divider />
                   <DropdownItem>
-                    Reset
+                    SingOut
                   </DropdownItem>
                 </DropdownMenu>
               </UncontrolledDropdown>

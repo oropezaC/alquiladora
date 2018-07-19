@@ -25,12 +25,7 @@ h2{
 .toolbar{
   color: #FAFAFA;
 }
-.cardSize img{
-  width: 300px;
-  height: 300px;
-  margin:10px auto;
-	display:block;
-}
+
 Button{
   float: right;
 }
@@ -43,5 +38,8 @@ Button{
   padding: 50px;
 }
 .xenter{
+  text-align: center;
+}
+.titleGraph{
   text-align: center;
 }
